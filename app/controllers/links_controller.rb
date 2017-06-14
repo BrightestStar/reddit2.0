@@ -1,14 +1,17 @@
 class LinksController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @links = Link.all
   end
 
   def show
     @link = Link.find(params[:id])
+    @link.user == current_user
   end
 
   def new
-    @link = Link.new
+    @link = current_user.links.build
   end
 
   def edit
@@ -26,7 +29,7 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(link_params)
+    @link = current_user.links.build(link_params)
     if @link.save
       redirect_to links_path
     else
