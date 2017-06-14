@@ -43,6 +43,18 @@ class LinksController < ApplicationController
     redirect_to links_path, notice: 'Link was successfully destroyed.'
   end
 
+  def upvote
+    @link = Link.find(params[:id])
+    @link.upvote_by current_user
+    redirect_to request.referer
+  end
+
+  def downvote
+    @link = Link.find(params[:id])
+    @link.downvote_by current_user
+    redirect_to request.referer
+  end
+
   private
 
   def link_params
