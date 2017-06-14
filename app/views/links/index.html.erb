@@ -1,0 +1,15 @@
+<% @links.each do |link| %>
+<div class="link clearfix">
+    <h2>
+        <%= link_to link.title, link %><br>
+        <small class="author">Submitted
+            <%= time_ago_in_words(link.created_at) %>
+
+    </h2>
+
+    <div class="btn-group">
+        <a class="btn btn-default btn-sm" href="<%= link.url %>">Visit Link</a>
+
+    </div>
+</div>
+<% end %>

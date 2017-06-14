@@ -1,0 +1,19 @@
+<h2>New</h2>
+
+<%= simple_form_for(@link) do |f| %>
+
+<div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control" %>
+</div>
+
+<div class="form-group">
+    <%= f.label :url %><br>
+    <%= f.text_field :url, class: "form-control" %>
+</div>
+
+<div class="group">
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+</div>
+
+<% end %>
