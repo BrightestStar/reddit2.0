@@ -7,7 +7,6 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.find(params[:id])
-    @link.user == current_user
   end
 
   def new
