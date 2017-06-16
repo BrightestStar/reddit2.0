@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @links = Link.all
+    @links = Link.all.order(:cached_votes_score => :desc)
   end
 
   def show
