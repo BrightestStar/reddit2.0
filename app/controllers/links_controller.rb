@@ -2,7 +2,12 @@ class LinksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @links = Link.all.order(:cached_votes_score => :desc)
+    @links = case params[:order]
+    when 'cached_weighted_average'
+      Link.order(:cached_weighted_average => :desc)
+    else 'cached_votes_score'
+      Link.order(:cached_votes_score => :desc)
+    end
   end
 
   def show
