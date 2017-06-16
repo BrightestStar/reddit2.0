@@ -14,7 +14,7 @@
                     <nav class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav">
                             <li><%= link_to("Hot", links_path(:order => "cached_votes_score")) %></li>
-                            <li><%= link_to("News", links_path(:order => "cached_weighted_average")) %></li>
+                            <li><%= link_to("New", links_path(:order => "cached_weighted_average")) %></li>
                         </ul>
                         <% if user_signed_in? %>
                         <ul class="nav navbar-nav navbar-right">
